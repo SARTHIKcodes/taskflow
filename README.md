@@ -3,7 +3,7 @@
 A clean, lightweight Kanban board to organize your tasks 
 without the complexity of expensive tools.
 
-![Tasks Flow Screenshot](screenshot.png)
+
 
 ## 🚀 Live Demo
 
