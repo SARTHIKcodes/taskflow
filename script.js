@@ -8,6 +8,9 @@ const taskDescriptionInput = document.getElementById('task-description');
 const taskPriorityInput = document.getElementById('task-priority');
 const columns = Array.from(document.querySelectorAll('.task-column'));
 
+// Theme toggle
+const themeToggleBtn = document.getElementById('theme-toggle');
+
 // About modal elements
 const aboutLink = document.getElementById('about-link');
 const aboutModal = document.querySelector('.about-modal');
@@ -207,8 +210,36 @@ document.addEventListener('dragend', (e) => {
     // Handled by CSS class .dragging
 });
 
+// Theme toggle functionality
+function loadTheme() {
+    const theme = localStorage.getItem('theme') || 'dark';
+    if (theme === 'light') {
+        document.body.classList.add('light-mode');
+        themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
+    } else {
+        document.body.classList.remove('light-mode');
+        themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
+    }
+    setTimeout(() => lucide.createIcons(), 0);
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    const isLight = document.body.classList.contains('light-mode');
+    if (isLight) {
+        document.body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+        themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
+    } else {
+        document.body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+        themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
+    }
+    setTimeout(() => lucide.createIcons(), 0);
+});
+
 // Initial setup
 loadTasks();
+loadTheme();
 updateMetrics();
 setupDragDrop();
 
