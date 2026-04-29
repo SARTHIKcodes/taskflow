@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task flow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <main>
+        <div class="summary-bar">
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="layout-list"></i></div>
+                <div class="metric-copy">
+                    <div class="metric-label">Total Cards</div>
+                    <div class="metric-value"><span id="total-cards">1</span></div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="circle-check"></i></div>
+                <div class="metric-copy">
+                    <div class="metric-label">Completed</div>
+                    <div class="metric-value"><span id="completed-count">0</span></div>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon"><i data-lucide="timer"></i></div>
+                <div class="metric-copy">
+                    <div class="metric-label">WIP</div>
+                    <div class="metric-value"><span id="wip-health">0</span></div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="left">tasks flow</div>
+            <div class="right">
+                <button id="toggle-modal">Add Task</button>
+            </div>
+        </nav>
+        <section class="kanban-board">
+            <div id="todo" class="task-column">
+                <div class="heading">
+                    <div class="left">To Do</div>
+                    <div class="right">Count: <span class="count">1</span></div>
+                </div>
+                <div draggable="true" class="task low" id="task-1">
+                    <h2>Task 1</h2>
+                    <p>Description of Task 1</p>
+                    <div class="task-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div id="progress" class="task-column">
+                <div class="heading">
+                    <div class="left">In Progress</div>
+                    <div class="right">Count: <span class="count">0</span></div>
+                </div>
+            </div>
+            <div id="done" class="task-column">
+                <div class="heading">
+                    <div class="left">Done</div>
+                    <div class="right">Count: <span class="count">0</span></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">Task Flow © 2026</p>
+            <div class="footer-links">
+                <a href="#" id="about-link">About</a>
+                <span class="divider">•</span>
+                <a href="https://github.com/SARTHIKcodes" target="_blank">GitHub</a>
+                <span class="divider">•</span>
+                <a href="https://www.instagram.com/sarthik.22/" target="_blank">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal">
+        <div class="bg"></div>
+        <div class="center">
+            <h2 id="modal-title" style="margin-bottom: 1rem;">Add Task</h2>
+            <input type="text" id="task-title" placeholder="Task title">
+            <textarea id="task-description" placeholder="Task description"></textarea>
+            <label for="task-priority">Priority</label>
+            <select id="task-priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button id="add-new-task" class="add-new-task">Save Task</button>
+            <button id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <div class="about-modal">
+        <div class="bg"></div>
+        <div class="center">
+            <button id="close-about" class="close-about-btn">&times;</button>
+            <h1>Task Flow</h1>
+            <p class="about-subtitle">A free, lightweight Kanban board built for people who want to get things done without complexity.</p>
+            
+            <div class="about-content">
+                <p>No sign-up, no subscription, no clutter — just a clean workspace where you can organize your tasks and actually focus on your work.</p>
+                
+                <h2>Features</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <strong>Kanban Board Layout</strong> — Visualize your work across three stages: To Do, In Progress, and Done. See everything at a glance and never lose track of a task again.
+                    </div>
+                    <div class="feature-item">
+                        <strong>Task Priority Levels</strong> — Mark every task as Low, Medium, or High priority so you always know what needs your attention first.
+                    </div>
+                    <div class="feature-item">
+                        <strong>Real-time Stats</strong> — The header shows you Total Cards, Completed tasks, and Work In Progress count at all times — no digging around needed.
+                    </div>
+                    <div class="feature-item">
+                        <strong>Add & Delete Tasks</strong> — Create tasks with a title, description, and priority in seconds. Remove them just as fast when they're done.
+                    </div>
+                    <div class="feature-item">
+                        <strong>Persistent Storage</strong> — Your tasks are saved in your browser automatically. Close the tab, restart your computer — your work is still there when you come back.
+                    </div>
+                    <div class="feature-item">
+                        <strong>Clean Dark UI</strong> — Designed to be easy on your eyes during long work sessions. No flashy distractions, just your tasks.
+                    </div>
+                    <div class="feature-item">
+                        <strong>Lightweight</strong> — Loads instantly, never slows you down
+                    </div>
+                    <div class="feature-item">
+                        <strong>Private</strong> — Your tasks never leave your device, no data is sent anywhere
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
