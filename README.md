@@ -25,7 +25,7 @@ without the complexity of expensive tools.
 Clone the repo and open index.html in your browser — that's it.
 
 ```bash
-git clone https://github.com/yourusername/taskflow.git
+git clone https://github.com/SARTHIKcodes/taskflow
 ```
 
 
